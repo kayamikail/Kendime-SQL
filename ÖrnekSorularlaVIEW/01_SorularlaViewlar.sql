@@ -70,3 +70,15 @@ GROUP BY P.ProductID, P.ProductName
 ORDER BY SUM(OD.UnitPrice) DESC
 
 SELECT * FROM v_EnPahalı5Urun --View Oluşturuluyor
+
+/*******************************************************************************************/
+
+SELECT 
+c.CategoryName,
+p.ProductName,
+od.Quantity
+FROM Products p  
+JOIN Categories c ON p.CategoryID=c.CategoryID
+JOIN [Order Details] od ON p.ProductID=od.ProductID
+WHERE ProductName='Chai'
+ORDER BY od.Quantity DESC
